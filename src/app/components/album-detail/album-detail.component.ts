@@ -22,14 +22,18 @@ export class AlbumDetailComponent implements OnInit {
   album = signal<Album | null>(null);
 
   ngOnInit() {
+    this.checkRouterParamsForAlbum();
+  }
+
+  addToPlaylist(track: string) {
+    this.playlistService.addToPlaylist(track);
+  }
+
+  private checkRouterParamsForAlbum() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       const foundAlbum = this.albumService.getAlbum(+id);
       this.album.set(foundAlbum || null);
     }
-  }
-
-  addToPlaylist(track: string) {
-    this.playlistService.addToPlaylist(track);
   }
 }
