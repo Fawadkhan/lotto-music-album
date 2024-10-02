@@ -13,19 +13,19 @@ import { AlbumService } from 'src/app/services/album.service';
   templateUrl: './album-detail.component.html',
   styleUrls: ['./album-detail.component.scss']
 })
+
+
 export class AlbumDetailComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-  private albumService = inject(AlbumService);
-
-  album = signal<Album | null>(null);
-
-  ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.albumService.getAlbum(+id).subscribe(album => {
-        this.album.set(album);
-      });
+    private route = inject(ActivatedRoute);
+    private albumService = inject(AlbumService);
+  
+    album = signal<Album | null>(null);
+  
+    ngOnInit() {
+      const id = this.route.snapshot.paramMap.get('id');
+      if (id) {
+        const foundAlbum = this.albumService.getAlbum(+id);
+        this.album.set(foundAlbum || null);
+      }
     }
   }
-
-}

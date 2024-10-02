@@ -1,14 +1,14 @@
 <div class="album-list">
   <mat-form-field>
     <mat-label>Sort by</mat-label>
-    <mat-select [ngModel]="sortCriteria()" >
+    <mat-select [(ngModel)]="sortCriteria" (selectionChange)="onSortChange($event.value)">
       <mat-option value="title">Title</mat-option>
       <mat-option value="artist">Artist</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Filter by artist</mat-label>
-    <input matInput [ngModel]="filterArtist()" >
+    <input matInput [(ngModel)]="filterArtist" (input)="onFilterChange($event)">
   </mat-form-field>
   <div class="album-grid">
     <mat-card *ngFor="let album of albums()" [routerLink]="['/album', album.id]">
@@ -19,5 +19,4 @@
       </mat-card-content>
     </mat-card>
   </div>
-  <button (click)="loadMoreAlbums()">Load More</button>
 </div>

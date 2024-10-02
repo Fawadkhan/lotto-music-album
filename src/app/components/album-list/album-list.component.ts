@@ -1,4 +1,4 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, OnInit, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -16,28 +16,23 @@ import { AlbumService } from 'src/app/services/album.service';
   templateUrl: './album-list.component.html',
   styleUrls: ['./album-list.component.scss']
 })
-export class AlbumListComponent implements OnInit {
-  private albumService = inject(AlbumService);
 
-  albums = signal<Album[]>([]);
+export class AlbumListComponent {
+  albumService = inject(AlbumService);
+
   sortCriteria = signal<'title' | 'artist'>('title');
   filterArtist = signal<string>('');
 
-  private page = 0;
-  private limit = 10;
+  albums = computed(() => this.albumService.getAlbums());
 
-  ngOnInit() {
-    this.loadMoreAlbums();
+  onSortChange(criteria: 'title' | 'artist') {
+    this.sortCriteria.set(criteria);
+    this.albumService.sortAlbums(criteria);
   }
 
-  loadMoreAlbums() {
-    this.albumService.getAlbums(this.page, this.limit).subscribe(newAlbums => {
-      this.albums.update(albums => [...albums, ...newAlbums]);
-      this.page++;
-    });
-  }
-
-  onScroll() {
-    this.loadMoreAlbums();
+  onFilterChange(event: Event) {
+    const artist = (event.target as HTMLInputElement).value;
+    this.filterArtist.set(artist);
+    this.albumService.filterAlbums(artist);
   }
 }

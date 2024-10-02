@@ -1,13 +1,11 @@
 .album-list {
     padding: 20px;
   }
-  
   .album-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
   }
-  
   mat-card {
     cursor: pointer;
   }
