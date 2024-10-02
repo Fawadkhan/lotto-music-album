@@ -16,7 +16,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 @Component({
   selector: 'app-album-list',
   standalone: true,
-  imports: [CommonModule, RouterModule,
+  imports: [
+    CommonModule,
+    RouterModule,
     FormsModule,
     MatCardModule,
     MatFormFieldModule,

@@ -6,7 +6,12 @@
       <div class="track-list">
         <h3>Tracks:</h3>
         <ol>
-          <li *ngFor="let track of album()?.tracks">{{ track }}</li>
+          <li *ngFor="let track of album()?.tracks" class="album-detail-item">
+           <span>{{ track }}</span> 
+            <button mat-icon-button (click)="addToPlaylist(track)" aria-label="Add to playlist">
+              <mat-icon>add</mat-icon>
+            </button>
+          </li>
         </ol>
       </div>
     </div>

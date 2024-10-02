@@ -1,7 +1,11 @@
 .album-detail {
     padding: 20px;
     text-align: left;
+    &-item {
+      text-decoration: solid;
+    }
   }
+
   img {
     max-width: 300px;
     height: auto;

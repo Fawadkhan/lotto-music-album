@@ -1,0 +1,12 @@
+<mat-list>
+    <h3 mat-subheader>Playlist</h3>
+    <mat-list-item *ngFor="let track of playlist()">
+    <div class="playlist-item">
+      <mat-icon mat-list-icon>music_note</mat-icon>
+      <div mat-line>{{ track }}</div>
+      <button mat-icon-button (click)="removeFromPlaylist(track)" aria-label="Remove from playlist">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    </mat-list-item>
+  </mat-list>

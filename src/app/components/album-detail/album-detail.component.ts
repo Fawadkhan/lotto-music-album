@@ -5,11 +5,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Album } from '../../models/album.model';
 import { AlbumService } from 'src/app/services/album.service';
+import { PlaylistService } from 'src/app/services/playlist.service';
 
 @Component({
   selector: 'app-album-detail',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule],
+  imports: [CommonModule, MatButtonModule, MatIconModule, MatButtonModule],
   templateUrl: './album-detail.component.html',
   styleUrls: ['./album-detail.component.scss']
 })
@@ -18,6 +19,7 @@ import { AlbumService } from 'src/app/services/album.service';
 export class AlbumDetailComponent implements OnInit {
     private route = inject(ActivatedRoute);
     private albumService = inject(AlbumService);
+    private playlistService = inject(PlaylistService);
   
     album = signal<Album | null>(null);
   
@@ -27,5 +29,9 @@ export class AlbumDetailComponent implements OnInit {
         const foundAlbum = this.albumService.getAlbum(+id);
         this.album.set(foundAlbum || null);
       }
+    }
+
+    addToPlaylist(track: string) {
+      this.playlistService.addToPlaylist(track);
     }
   }
