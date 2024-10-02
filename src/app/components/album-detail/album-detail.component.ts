@@ -12,26 +12,24 @@ import { PlaylistService } from 'src/app/services/playlist.service';
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatIconModule, MatButtonModule],
   templateUrl: './album-detail.component.html',
-  styleUrls: ['./album-detail.component.scss']
+  styleUrls: ['./album-detail.component.scss'],
 })
-
-
 export class AlbumDetailComponent implements OnInit {
-    private route = inject(ActivatedRoute);
-    private albumService = inject(AlbumService);
-    private playlistService = inject(PlaylistService);
-  
-    album = signal<Album | null>(null);
-  
-    ngOnInit() {
-      const id = this.route.snapshot.paramMap.get('id');
-      if (id) {
-        const foundAlbum = this.albumService.getAlbum(+id);
-        this.album.set(foundAlbum || null);
-      }
-    }
+  private route = inject(ActivatedRoute);
+  private albumService = inject(AlbumService);
+  private playlistService = inject(PlaylistService);
 
-    addToPlaylist(track: string) {
-      this.playlistService.addToPlaylist(track);
+  album = signal<Album | null>(null);
+
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      const foundAlbum = this.albumService.getAlbum(+id);
+      this.album.set(foundAlbum || null);
     }
   }
+
+  addToPlaylist(track: string) {
+    this.playlistService.addToPlaylist(track);
+  }
+}
