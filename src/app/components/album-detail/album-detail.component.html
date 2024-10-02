@@ -1,0 +1,15 @@
+<div *ngIf="album()" class="album-detail">
+    <img [src]="album()?.cover" [alt]="album()?.title + ' cover'">
+    <h2>{{ album()?.title }}</h2>
+    <p>{{ album()?.artist }}</p>
+    <h3>Tracks:</h3>
+    <ul>
+      <li *ngFor="let track of album()?.tracks">
+        {{ track }}
+        <button mat-icon-button aria-label="Add to playlist">
+          <mat-icon>add</mat-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
+  

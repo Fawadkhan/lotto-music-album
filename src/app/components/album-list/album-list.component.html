@@ -1,0 +1,23 @@
+<div class="album-list">
+  <mat-form-field>
+    <mat-label>Sort by</mat-label>
+    <mat-select [ngModel]="sortCriteria()" >
+      <mat-option value="title">Title</mat-option>
+      <mat-option value="artist">Artist</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Filter by artist</mat-label>
+    <input matInput [ngModel]="filterArtist()" >
+  </mat-form-field>
+  <div class="album-grid">
+    <mat-card *ngFor="let album of albums()" [routerLink]="['/album', album.id]">
+      <img mat-card-image [src]="album.cover" [alt]="album.title + ' cover'">
+      <mat-card-content>
+        <h2>{{ album.title }}</h2>
+        <p>{{ album.artist }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <button (click)="loadMoreAlbums()">Load More</button>
+</div>

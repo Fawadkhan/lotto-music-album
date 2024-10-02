@@ -11,7 +11,6 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [CommonModule, RouterOutlet, RouterLink, MatToolbarModule, MatButtonModule],
   template: `
     <mat-toolbar color="primary">
-      <span>Music Album App</span>
       <a mat-button routerLink="/albums">Albums</a>
       <a mat-button routerLink="/playlist">Playlist</a>
     </mat-toolbar>
