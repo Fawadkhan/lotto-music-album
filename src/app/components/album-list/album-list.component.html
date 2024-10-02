@@ -1,25 +1,25 @@
-<div class="album-list">
-  <section class="album-header">
-  <mat-form-field>
-    <mat-label>Sort by</mat-label> 
-    <mat-select [(ngModel)]="sortCriteria" (selectionChange)="onSortChange($event.value)">
-      <mat-option value="title">Title</mat-option>
-      <mat-option value="artist">Artist</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Filter by artist</mat-label>
-    <input matInput [(ngModel)]="filterArtist" (input)="onFilterChange($event)">
-  </mat-form-field>
-  <button mat-flat-button (click)="clearFilters()">Clear</button>
-</section>
-  <div class="album-grid">
-    <mat-card *ngFor="let album of albums()" [routerLink]="['/album', album.id]">
-      <img mat-card-image [src]="album.cover" [alt]="album.title + ' cover'">
-      <mat-card-content>
-        <h6>{{ album.title }}</h6>
-        <p>{{ album.artist }}</p>
-      </mat-card-content>
-    </mat-card>
+<div class="album-list-container">
+  <div class="filters">
+    <mat-form-field>
+      <mat-label>Sort by</mat-label>
+      <mat-select [ngModel]="sortCriteria()" (selectionChange)="onSortChange($event.value)">
+        <mat-option value="title">Title</mat-option>
+        <mat-option value="artist">Artist</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Filter by artist</mat-label>
+      <input matInput [ngModel]="filterArtist()" (input)="onFilterChange($event)">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="clearFilters()">Clear Filters</button>
   </div>
+    <div class="album-grid">
+      <mat-card *ngFor="let album of albums()" [routerLink]="['/album', album.id]" class="album-card">
+        <img mat-card-image [src]="album.cover" [alt]="album.title">
+        <mat-card-content>
+          <h5>{{ album.title }}</h5>
+          <p>{{ album.artist }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
 </div>

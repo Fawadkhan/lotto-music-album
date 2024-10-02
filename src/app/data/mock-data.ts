@@ -94,7 +94,7 @@ export const MOCK_ALBUMS: Album[] = [
     },
     {
       id: 14,
-      title: "The Rise and Fall of Ziggy Stardust and the Spiders from Mars",
+      title: "The Rise and Fall of Ziggy",
       artist: "David Bowie",
       cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
       tracks: ["Starman", "Suffragette City,", "Rock"]
