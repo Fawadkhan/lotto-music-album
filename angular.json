@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "lotto-music-album-project:build:production"
+              "buildTarget": "lotto-music-album-project:build:production"
             },
             "development": {
-              "browserTarget": "lotto-music-album-project:build:development"
+              "buildTarget": "lotto-music-album-project:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lotto-music-album-project:build"
+            "buildTarget": "lotto-music-album-project:build"
           }
         },
         "test": {
