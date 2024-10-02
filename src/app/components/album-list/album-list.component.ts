@@ -74,7 +74,6 @@ export class AlbumListComponent {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: queryParams,
-      queryParamsHandling: 'merge'
     });
   }
 

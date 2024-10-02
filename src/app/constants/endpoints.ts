@@ -1,0 +1,1 @@
+export const MOCK_ALBUM_ENDPOINT = 'https://66fdb2ef699369308955fb0b.mockapi.io/api/v1/albums';
