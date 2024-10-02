@@ -5,3 +5,5 @@ export type Album = {
     cover: string;
     tracks: string[];
 }
+
+export type SortCriteria = 'title' | 'artist';

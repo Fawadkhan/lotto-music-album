@@ -71,5 +71,33 @@ export const MOCK_ALBUMS: Album[] = [
       cover: "https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg",
       tracks: ["Hotel California", "Life in the Fast Lane", "New Kid in Town"]
     },
+    {
+      id: 11,
+      title: "Led Zeppelin IV",
+      artist: "Led Zeppelin",
+      cover: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Led_Zeppelin_-_promotional_image_%281971%29.jpg/570px-Led_Zeppelin_-_promotional_image_%281971%29.jpg",
+      tracks: ["Stairway to Heaven", "Black Dog", "Rock and Roll"]
+    },
+    {
+      id: 12,
+      title: "The Wall",
+      artist: "Pink Floyd",
+      cover: "https://upload.wikimedia.org/wikipedia/en/d/d6/Pink_Floyd_-_all_members.jpg",
+      tracks: ["Another Brick in the Wall", "Comfortably Numb", "Hey You"]
+    },
+    {
+      id: 13,
+      title: "Abbey Road",
+      artist: "The Beatles",
+      cover: "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+      tracks: ["Come Together", "Here Comes the Sun", "Something"]
+    },
+    {
+      id: 14,
+      title: "The Rise and Fall of Ziggy Stardust and the Spiders from Mars",
+      artist: "David Bowie",
+      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      tracks: ["Starman", "Suffragette City,", "Rock"]
+    },
   ];
   

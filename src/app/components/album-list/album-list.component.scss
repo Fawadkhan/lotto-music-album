@@ -9,3 +9,13 @@
   mat-card {
     cursor: pointer;
   }
+
+  .album-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    button {
+      margin-bottom: 5px;
+    }
+  }
