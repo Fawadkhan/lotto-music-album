@@ -28,7 +28,7 @@
 }
 
 .album-viewport {
-  height: calc(100vh - 300px);
+  height: calc(100vh - 220px);
   width: 100%;
   border-radius: $border-radius-medium;
   background-color: $primary-bg-color;
@@ -44,9 +44,8 @@
 }
 
 .album-card {
-  height: 350px;
+  height: 320px;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 
   &:hover {
