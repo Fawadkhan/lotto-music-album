@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Album } from '../../models/album.model';
-import { AlbumService } from 'src/app/services/album.service';
-import { PlaylistService } from 'src/app/services/playlist.service';
+import { Album } from '../../../core/models/album.model';
+import { AlbumService } from 'src/app/core/services/album.service';
+import { PlaylistService } from 'src/app/core/services/playlist.service';
 
 @Component({
   selector: 'app-album-detail',

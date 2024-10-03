@@ -15,7 +15,7 @@
   </div>
   <cdk-virtual-scroll-viewport class="album-viewport" itemSize="350" >
     <div class="album-grid">
-      <mat-card *cdkVirtualFor="let album of albums()" [routerLink]="['/album', album.id]" class="album-card">
+      <mat-card *cdkVirtualFor="let album of albums(); templateCacheSize: 5"  [routerLink]="['/album', album.id]" class="album-card">
         <img mat-card-image [src]="album.cover" [alt]="album.title">
         <mat-card-content>
           <h5>{{ album.title }}</h5>

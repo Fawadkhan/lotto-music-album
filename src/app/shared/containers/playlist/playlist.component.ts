@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { PlaylistService } from '../../services/playlist.service';
+import { PlaylistService } from 'src/app/core/services/playlist.service';
 
 @Component({
   selector: 'app-playlist',

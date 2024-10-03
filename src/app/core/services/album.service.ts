@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { Album, SortCriteria } from '../models/album.model';
-import { MOCK_ALBUMS } from '../data/mock-data';
+import { MOCK_ALBUMS } from '../fixtures/mock-data';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
