@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { Album, SortCriteria } from '../models/album.model';
+import { Album, SortCriteria } from 'src/app/core/models';
 import { MOCK_ALBUMS } from '../fixtures/mock-data';
 import { HttpClient } from '@angular/common/http';
 
@@ -35,7 +35,7 @@ export class AlbumService {
     if (!artist) {
       this.albumsSignal.set(MOCK_ALBUMS);
     } else {
-      const filteredAlbums = MOCK_ALBUMS.filter(album => album.artist.toLowerCase().includes(artist.toLowerCase()));
+      const filteredAlbums = MOCK_ALBUMS.filter(album => album.artist.toLowerCase().startsWith(artist.toLowerCase()));
       this.albumsSignal.set(filteredAlbums);
     }
   };

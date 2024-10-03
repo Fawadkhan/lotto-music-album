@@ -1,19 +1,21 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
+import { LocalStorageKey } from 'src/app/core/models';
+import { StorageService } from 'src/app/core/services';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PlaylistService {
-  private storageKey = 'musicAppPlaylist';
+export class PlaylistService { 
+  storageService = inject(StorageService)
+
   playlist = signal<string[]>(this.getStoredPlaylist());
 
   private getStoredPlaylist(): string[] {
-    const storedPlaylist = localStorage.getItem(this.storageKey);
-    return storedPlaylist ? JSON.parse(storedPlaylist) : [];
+    return this.storageService.getItem<string[]>(LocalStorageKey.MUSIC_APP_PLAYLIST);
   }
 
   private updateStoredPlaylist(playlist: string[]): void {
-    localStorage.setItem(this.storageKey, JSON.stringify(playlist));
+    this.storageService.setItem(LocalStorageKey.MUSIC_APP_PLAYLIST, playlist);
     this.playlist.set(playlist);
   }
 

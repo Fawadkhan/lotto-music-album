@@ -6,8 +6,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { SortCriteria } from '../../../core/models/album.model';
-import { AlbumService } from 'src/app/core/services/album.service';
+import { SortCriteria } from 'src/app/core/models';
+import { AlbumService } from 'src/app/core/services';
 import { MatButtonModule } from '@angular/material/button';
 import {  ScrollingModule } from '@angular/cdk/scrolling';
 

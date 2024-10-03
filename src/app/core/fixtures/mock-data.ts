@@ -1,4 +1,4 @@
-import { Album } from "../models/album.model";
+import { Album } from "src/app/core/models";
 
 export const MOCK_ALBUMS: Album[] = [
     {
