@@ -3,7 +3,6 @@
   flex-direction: column;
   padding: 20px;
   background-color: #f8f9fa;
-  overflow: hidden;
 }
 
 .filters {
@@ -11,24 +10,23 @@
   flex-wrap: wrap;
   gap: 16px;
   padding: 20px;
-  align-items: center;
+  background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   margin-bottom: 20px;
 
   mat-form-field {
     flex: 1;
-    max-width: 400px;
+    min-width: 200px;
   }
 
   button {
     align-self: flex-start;
-    padding: 8px 16px;
   }
 }
 
 .album-viewport {
-  height: calc(100vh - 200px);
+  height: calc(100vh - 300px);
   width: 100%;
   border-radius: 8px;
   background-color: #ffffff;
@@ -36,10 +34,12 @@
 }
 
 .album-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 400px);
-  gap: 20px;
-  padding: 20px;
+  display: flex;
+  // grid-template-columns: repeat(1, 400px);
+  flex-direction: column;
+  width: 50%;
+  gap: 24px;
+  padding: 24px;
 }
 
 .album-card {
@@ -60,10 +60,6 @@
     transition: transform 0.3s ease;
   }
 
-  &:hover img {
-    transform: scale(1.05);
-  }
-
   mat-card-content {
     padding: 16px;
 
@@ -82,9 +78,43 @@
   }
 }
 
-@media screen and (max-width: 599.98px) {
+
+@media screen and (max-width: 768px) {
   .album-grid {
     grid-template-columns: repeat(1, 1fr);
   }
   
+  .filters {
+    flex-direction: column;
+    padding: 16px;
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 8px;
+    }
+  }
+
+  .album-card {
+    height: 300px;
+
+    img {
+      height: 180px;
+    }
+
+    mat-card-content {
+      padding: 12px;
+
+      h5 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
 }

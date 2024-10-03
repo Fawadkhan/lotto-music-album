@@ -1,8 +1,60 @@
+mat-list {
+    h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #444;
+        margin-bottom: 16px;
+        margin-left: 16px;
+    }
+}
+
 .playlist-item {
     display: flex;
-    gap: 10px;
     align-items: center;
+    width: 100%;
+    gap: 5px;
+    margin: 5px 0;
+    padding: 12px 8px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+
+    &:hover {
+        background-color: #e9ecef;
+    }
+
+    .mat-list-icon {
+        color: #6c757d;
+        margin-right: auto;
+    }
+
+    .mat-line {
+        flex-grow: 1;
+        font-size: 16px;
+        color: #495057;
+    }
+
+    button {
+        color: #dc3545;
+        margin-left: auto;
+        margin-right: 16px;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
 }
-mat-list {
-    padding: 24px;
+
+
+@media (max-width: 768px) {
+    .mat-list {
+        padding: 12px;
+    }
+
+    .mat-list-item .playlist-item {
+        padding: 8px;
+
+        .mat-line {
+            font-size: 14px;
+        }
+    }
 }
