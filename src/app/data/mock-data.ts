@@ -99,5 +99,76 @@ export const MOCK_ALBUMS: Album[] = [
       cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
       tracks: ["Starman", "Suffragette City,", "Rock"]
     },
+
+    {
+      id: 15,
+      title: "The Rise and Fall of Ziggy",
+      artist: "David Bowie",
+      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      tracks: ["Starman", "Suffragette City,", "Rock"]
+    },
+    {
+      id: 16,
+      title: "The Rise and Fall of Ziggy",
+      artist: "David Bowie",
+      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      tracks: ["Starman", "Suffragette City,", "Rock"]
+    },
+    {
+      id: 17,
+      title: "The Rise and Fall of Ziggy",
+      artist: "David Bowie",
+      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      tracks: ["Starman", "Suffragette City,", "Rock"]
+    },
+    {
+      id: 18,
+      title: "The Rise and Fall of Ziggy",
+      artist: "David Bowie",
+      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      tracks: ["Starman", "Suffragette City,", "Rock"]
+    },
+    {
+      id: 19,
+      title: "The Rise and Fall of Ziggy",
+      artist: "David Bowie",
+      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      tracks: ["Starman", "Suffragette City,", "Rock"]
+    },
+    {
+      id: 20,
+      title: "The Rise and Fall of Ziggy",
+      artist: "David Bowie",
+      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      tracks: ["Starman", "Suffragette City,", "Rock"]
+    },
+    {
+      id: 21,
+      title: "The Rise and Fall of Ziggy",
+      artist: "David Bowie",
+      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      tracks: ["Starman", "Suffragette City,", "Rock"]
+    },
+    {
+      id: 22,
+      title: "The Rise and Fall of Ziggy",
+      artist: "David Bowie",
+      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      tracks: ["Starman", "Suffragette City,", "Rock"]
+    },
+    {
+      id: 23,
+      title: "The Rise and Fall of Ziggy",
+      artist: "David Bowie",
+      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      tracks: ["Starman", "Suffragette City,", "Rock"]
+    },
+    {
+      id: 24,
+      title: "The Rise and Fall of Ziggy",
+      artist: "David Bowie",
+      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      tracks: ["Starman", "Suffragette City,", "Rock"]
+    },
   ];
   

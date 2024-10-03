@@ -13,8 +13,9 @@
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="clearFilters()">Clear Filters</button>
   </div>
+  <cdk-virtual-scroll-viewport class="album-viewport" itemSize="350" >
     <div class="album-grid">
-      <mat-card *ngFor="let album of albums()" [routerLink]="['/album', album.id]" class="album-card">
+      <mat-card *cdkVirtualFor="let album of albums()" [routerLink]="['/album', album.id]" class="album-card">
         <img mat-card-image [src]="album.cover" [alt]="album.title">
         <mat-card-content>
           <h5>{{ album.title }}</h5>
@@ -22,4 +23,5 @@
         </mat-card-content>
       </mat-card>
     </div>
+  </cdk-virtual-scroll-viewport>
 </div>

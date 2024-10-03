@@ -1,4 +1,4 @@
-import { Component, inject, signal, OnInit, computed, ViewChild } from '@angular/core';
+import { Component, inject, signal, OnInit, computed, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -9,8 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { SortCriteria } from '../../models/album.model';
 import { AlbumService } from 'src/app/services/album.service';
 import { MatButtonModule } from '@angular/material/button';
-import { ScrollingModule } from '@angular/cdk/scrolling';
-
+import {  ScrollingModule } from '@angular/cdk/scrolling';
 
 
 @Component({
@@ -40,9 +39,8 @@ export class AlbumListComponent {
   sortCriteria = signal<SortCriteria | undefined>(undefined);
   filterArtist = signal<string>('');
 
-
-
   albums = computed(() => this.albumService.getAlbums());
+
 
   ngOnInit() {
     this.checkIfRouteParamsChanged();
