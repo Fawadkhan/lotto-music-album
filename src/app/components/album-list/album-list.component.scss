@@ -79,7 +79,7 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpoint-mobile) {
   .album-grid {
     grid-template-columns: repeat(1, 1fr);
   }

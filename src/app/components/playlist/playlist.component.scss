@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 mat-list {
     h3 {
         font-size: 20px;
@@ -33,28 +35,28 @@ mat-list {
         color: #495057;
     }
 
-    button {
-        color: #dc3545;
-        margin-left: auto;
-        margin-right: 16px;
+  button {
+      color: $delete-color;
+      margin-left: auto;
+      margin-right: $spacing-medium;
 
-        &:hover {
-            opacity: 1;
-        }
+      &:hover {
+        opacity: 1;
+      }
     }
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: $breakpoint-mobile) {
     .mat-list {
-        padding: 12px;
+      padding: $spacing-small;
     }
-
+  
     .mat-list-item .playlist-item {
-        padding: 8px;
-
-        .mat-line {
-            font-size: 14px;
-        }
+      padding: $spacing-small;
+  
+      .mat-line {
+        font-size: $font-size-xs;
+      }
     }
-}
+  }

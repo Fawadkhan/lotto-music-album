@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, RouterLink } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
+import { RouterOutlet } from '@angular/router';
+import { NavigationComponent } from "./components/navigation/navigation.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   styleUrls: ['./app.component.scss'],
-  imports: [CommonModule, RouterOutlet, RouterLink, MatToolbarModule, MatButtonModule],
+  imports: [CommonModule,
+    RouterOutlet, NavigationComponent],
   template: `
-    <mat-toolbar color="primary">
-      <a mat-button routerLink="/albums">Albums</a>
-      <a mat-button routerLink="/playlist">Playlist</a>
-    </mat-toolbar>
+    <app-navigation></app-navigation>
     <router-outlet></router-outlet>
   `,
 })
