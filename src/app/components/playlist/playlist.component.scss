@@ -2,32 +2,35 @@
 
 mat-list {
     h3 {
-        font-size: 20px;
+        font-size: $font-size-medium;
         font-weight: 600;
-        color: #444;
-        margin-bottom: 16px;
-        margin-left: 16px;
-    }
+        color: $tertiary-text-color;
+        margin-bottom: $spacing-medium;
+        margin-left: $spacing-large;
+      }
 }
 
 .playlist-item {
     display: flex;
     align-items: center;
     width: 100%;
-    gap: 5px;
-    margin: 5px 0;
-    padding: 12px 8px;
-    background-color: #f8f9fa;
-    border-radius: 6px;
+    gap: $spacing-small;
+    margin: $spacing-small 0;
+    padding: $spacing-small $spacing-small;
+    background-color: $secondary-bg-color;
+    border-radius: $border-radius-small;
+
 
     &:hover {
         background-color: #e9ecef;
     }
 
+
     .mat-list-icon {
-        color: #6c757d;
+        color: $icon-color;
         margin-right: auto;
-    }
+      }
+  
 
     .mat-line {
         flex-grow: 1;
