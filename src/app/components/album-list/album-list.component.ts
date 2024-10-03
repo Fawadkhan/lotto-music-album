@@ -46,7 +46,6 @@ export class AlbumListComponent {
     this.checkIfRouteParamsChanged();
   }
 
-
   onSortChange(criteria: SortCriteria) {
     this.sortCriteria.set(criteria);
     this.albumService.sortAlbums(criteria);

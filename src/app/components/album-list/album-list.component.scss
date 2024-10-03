@@ -1,18 +1,38 @@
 .album-list-container {
   display: flex;
   flex-direction: column;
-
+  padding: 20px;
+  background-color: #f8f9fa;
+  overflow: hidden;
 }
 
 .filters {
   display: flex;
-  gap: 10px;
-  padding: 10px;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+
+  mat-form-field {
+    flex: 1;
+    max-width: 400px;
+  }
+
+  button {
+    align-self: flex-start;
+    padding: 8px 16px;
+  }
 }
 
 .album-viewport {
-  height: 100vh;
+  height: calc(100vh - 200px);
   width: 100%;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .album-grid {
@@ -25,12 +45,41 @@
 .album-card {
   height: 350px;
   cursor: pointer;
-}
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 
-.album-card img {
-  height: 180px;
-  object-fit: cover;
-  width: 100%;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  img {
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+
+  mat-card-content {
+    padding: 16px;
+
+    h5 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 8px;
+      color: #333;
+    }
+
+    p {
+      font-size: 14px;
+      color: #666;
+      margin: 0;
+    }
+  }
 }
 
 @media screen and (max-width: 599.98px) {
