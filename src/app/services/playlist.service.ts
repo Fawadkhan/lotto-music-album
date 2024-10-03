@@ -28,4 +28,8 @@ export class PlaylistService {
     const currentPlaylist = this.playlist();
     this.updateStoredPlaylist(currentPlaylist.filter(t => t !== track));
   }
+
+  isTrackInPlaylist(track: string): boolean {
+    return this.playlist().includes(track);
+  }
 }

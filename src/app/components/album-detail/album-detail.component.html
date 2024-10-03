@@ -8,8 +8,9 @@
       <ol>
         <li *ngFor="let track of album()?.tracks">
           <span>{{ track }}</span>
-          <button mat-icon-button (click)="addToPlaylist(track)" aria-label="Add to playlist">
-            <mat-icon>add</mat-icon>
+          <button mat-icon-button (click)="addToPlaylist(track)" 
+            [attr.aria-label]="playlistService.isTrackInPlaylist(track) ? 'Remove from playlist' : 'Add to playlist'">
+            <mat-icon>{{ playlistService.isTrackInPlaylist(track) ? 'check' : 'add' }}</mat-icon>
           </button>
         </li>
       </ol>

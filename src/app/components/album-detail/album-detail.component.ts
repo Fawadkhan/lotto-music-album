@@ -17,7 +17,7 @@ import { PlaylistService } from 'src/app/services/playlist.service';
 export class AlbumDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private albumService = inject(AlbumService);
-  private playlistService = inject(PlaylistService);
+  public playlistService = inject(PlaylistService);
 
   album = signal<Album | null>(null);
 
@@ -28,6 +28,11 @@ export class AlbumDetailComponent implements OnInit {
   addToPlaylist(track: string) {
     this.playlistService.addToPlaylist(track);
   }
+
+  isTrackInPlaylist(track: string): boolean {
+    return this.playlistService.isTrackInPlaylist(track);
+  }
+
 
   private checkRouterParamsForAlbum() {
     const id = this.route.snapshot.paramMap.get('id');
