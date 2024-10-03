@@ -36,9 +36,8 @@
 }
 
 .album-grid {
-  display: flex;
-  flex-direction: column;
-  width: 250px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: $spacing-large;
   padding: $spacing-large;
 }

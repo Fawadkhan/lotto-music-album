@@ -104,14 +104,14 @@ export const MOCK_ALBUMS: Album[] = [
       id: 15,
       title: "The Rise and Fall of Ziggy",
       artist: "David Bowie",
-      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      cover: "https://upload.wikimedia.org/wikipedia/en/5/55/Michael_Jackson_-_Thriller.png",
       tracks: ["Starman", "Suffragette City,", "Rock"]
     },
     {
       id: 16,
       title: "The Rise and Fall of Ziggy",
       artist: "David Bowie",
-      cover: "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+      cover: "https://upload.wikimedia.org/wikipedia/en/1/1b/Adele_-_21.png",
       tracks: ["Starman", "Suffragette City,", "Rock"]
     },
     {

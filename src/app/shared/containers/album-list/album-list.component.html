@@ -13,7 +13,7 @@
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="clearFilters()">Clear Filters</button>
   </div>
-  <cdk-virtual-scroll-viewport class="album-viewport" itemSize="350" >
+  <cdk-virtual-scroll-viewport class="album-viewport" itemSize="150">
     <div class="album-grid">
       <mat-card *cdkVirtualFor="let album of albums(); templateCacheSize: 5"  [routerLink]="['/album', album.id]" class="album-card">
         <img mat-card-image [src]="album.cover" [alt]="album.title">
