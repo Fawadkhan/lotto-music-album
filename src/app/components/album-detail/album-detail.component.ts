@@ -29,8 +29,8 @@ export class AlbumDetailComponent implements OnInit {
     this.playlistService.addToPlaylist(track);
   }
 
-  isTrackInPlaylist(track: string): boolean {
-    return this.playlistService.isTrackInPlaylist(track);
+  findTrackInPlaylist(track: string): boolean {
+    return this.playlistService.findTrack(track);
   }
 
 
