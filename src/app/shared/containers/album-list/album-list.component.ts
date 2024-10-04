@@ -10,6 +10,7 @@ import { SortCriteria } from 'src/app/core/models';
 import { AlbumService } from 'src/app/core/services';
 import { MatButtonModule } from '@angular/material/button';
 import {  ScrollingModule } from '@angular/cdk/scrolling';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-album-list',
@@ -39,22 +40,26 @@ export class AlbumListComponent {
   filterArtist = signal<string>('');
 
   albums =  this.albumService.getAlbums;
+  private _destroy$ = new Subject<void>();
 
   ngOnInit() {
     this.checkIfRouteParamsChanged();
   }
-
+  
+  ngOnDestroy() {
+    this._destroy$.next();
+  }
   onSortChange(criteria: SortCriteria) {
     this.sortCriteria.set(criteria);
     this.albumService.sortAlbums(criteria);
-    this.updateRoute();
+    this.updateRouteWithParam();
   }
 
   onFilterChange(event: Event) {
     const artist = (event.target as HTMLInputElement).value;
     this.filterArtist.set(artist);
     this.albumService.filterAlbums(artist);
-    this.updateRoute();
+    this.updateRouteWithParam();
   }
 
   clearFilters(): void {
@@ -65,7 +70,7 @@ export class AlbumListComponent {
   }
 
 
-  private updateRoute() {
+  private updateRouteWithParam() {
     const queryParams: { sort?: SortCriteria, filter?: string } = {};
     if(this.sortCriteria()) {
       queryParams.sort = this.sortCriteria();
@@ -81,7 +86,7 @@ export class AlbumListComponent {
   }
 
   private checkIfRouteParamsChanged() {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.pipe(takeUntil(this._destroy$)).subscribe(params => {
       if (params['sort']) {
         this.sortCriteria.set(params['sort'] as SortCriteria);
         this.albumService.sortAlbums(params['sort'] as SortCriteria);
@@ -92,4 +97,5 @@ export class AlbumListComponent {
       }
     });
   }
+
 }
