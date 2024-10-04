@@ -1,4 +1,4 @@
-@import '../../../styles/variables.scss';
+@import '../../../styles/variables';
 
 .album-list-container {
   display: flex;
@@ -35,56 +35,54 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.album-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-large;
-  padding: $spacing-large;
+.album-list {
+  width: 100%;
 }
 
-.album-card {
-  height: 320px;
-  cursor: pointer;
-  overflow: hidden;
+.album-item {
+  display: flex;
+  align-items: center;
+  padding: $spacing-medium;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background-color: $hover-bg-color;
   }
 
-  img {
-    height: 220px;
+  .album-thumbnail {
+    width: 60px;
+    height: 60px;
     object-fit: cover;
-    width: 100%;
+    border-radius: $border-radius-small;
+    margin-right: $spacing-medium;
   }
 
-  mat-card-content {
-    padding: $spacing-medium;
+  .album-info {
+    flex-grow: 1;
 
-    h5 {
-      font-size: $font-size-small;
+    h3 {
+      font-size: $font-size-medium;
       font-weight: 600;
       margin: 0 0 $spacing-small;
       color: $primary-text-color;
     }
 
     p {
-      font-size: $font-size-xs;
+      font-size: $font-size-small;
       color: $secondary-text-color;
       margin: 0;
     }
   }
+
+  button {
+    margin-left: $spacing-medium;
+  }
 }
 
-
 @media screen and (max-width: $breakpoint-mobile) {
-  .album-grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  
   .filters {
     flex-direction: column;
-    padding: 16px;
+    padding: $spacing-medium;
 
     mat-form-field {
       width: 100%;
@@ -92,27 +90,38 @@
 
     button {
       width: 100%;
-      margin-top: 8px;
+      margin-top: $spacing-small;
     }
   }
 
-  .album-card {
-    height: 300px;
+  .album-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: $spacing-medium;
 
-    img {
+    .album-thumbnail {
+      width: 100%;
       height: 180px;
+      margin-right: 0;
+      margin-bottom: $spacing-medium;
     }
 
-    mat-card-content {
-      padding: 12px;
+    .album-info {
+      width: 100%;
+      margin-bottom: $spacing-small;
 
-      h5 {
-        font-size: $font-size-xs;
+      h3 {
+        font-size: $font-size-small;
       }
 
       p {
-        font-size: 12px;
+        font-size: $font-size-xs;
       }
+    }
+
+    button {
+      width: 100%;
+      margin-left: 0;
     }
   }
 }

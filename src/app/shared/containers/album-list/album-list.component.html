@@ -13,15 +13,16 @@
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="clearFilters()">Clear Filters</button>
   </div>
-  <cdk-virtual-scroll-viewport class="album-viewport" itemSize="150">
-    <div class="album-grid">
-      <mat-card *cdkVirtualFor="let album of albums(); templateCacheSize: 5"  [routerLink]="['/album', album.id]" class="album-card">
-        <img mat-card-image [src]="album.cover" [alt]="album.title">
-        <mat-card-content>
-          <h5>{{ album.title }}</h5>
+  <cdk-virtual-scroll-viewport class="album-viewport" itemSize="80">
+    <div class="album-list">
+      <div *cdkVirtualFor="let album of allAlbums; templateCacheSize: 5" class="album-item">
+        <img [src]="album.cover" [alt]="album.title" class="album-thumbnail">
+        <div class="album-info">
+          <h3>{{ album.title }}</h3>
           <p>{{ album.artist }}</p>
-        </mat-card-content>
-      </mat-card>
+        </div>
+        <button mat-button color="primary" [routerLink]="['/album', album.id]">View Details</button>
+      </div>
     </div>
   </cdk-virtual-scroll-viewport>
 </div>

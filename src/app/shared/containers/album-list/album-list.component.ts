@@ -11,7 +11,6 @@ import { AlbumService } from 'src/app/core/services';
 import { MatButtonModule } from '@angular/material/button';
 import {  ScrollingModule } from '@angular/cdk/scrolling';
 
-
 @Component({
   selector: 'app-album-list',
   standalone: true,
@@ -24,7 +23,7 @@ import {  ScrollingModule } from '@angular/cdk/scrolling';
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
-    ScrollingModule
+    ScrollingModule,
   ],
   templateUrl: './album-list.component.html',
   styleUrls: ['./album-list.component.scss']
@@ -39,8 +38,7 @@ export class AlbumListComponent {
   sortCriteria = signal<SortCriteria | undefined>(undefined);
   filterArtist = signal<string>('');
 
-  albums = computed(() => this.albumService.getAlbums());
-
+  allAlbums =  this.albumService.getAlbums();
 
   ngOnInit() {
     this.checkIfRouteParamsChanged();
@@ -67,7 +65,6 @@ export class AlbumListComponent {
   }
 
 
-  // TODO: clean up this code 
   private updateRoute() {
     const queryParams: { sort?: SortCriteria, filter?: string } = {};
     if(this.sortCriteria()) {
@@ -83,8 +80,6 @@ export class AlbumListComponent {
     });
   }
 
-
-  // TODO: Cleanup later
   private checkIfRouteParamsChanged() {
     this.route.queryParams.subscribe(params => {
       if (params['sort']) {
@@ -95,7 +90,7 @@ export class AlbumListComponent {
         this.filterArtist.set(params['filter']);
         this.albumService.filterAlbums(params['filter']);
       }
+      this.clearFilters();
     });
   }
-  
 }
