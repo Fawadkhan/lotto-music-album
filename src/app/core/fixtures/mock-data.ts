@@ -24,14 +24,14 @@ export const MOCK_ALBUMS: Album[] = [
     },
     {
       id: 4,
-      title: "Back in Black",
-      artist: "Abele",
+      title: "21",
+      artist: "Adele",
       cover: "https://upload.wikimedia.org/wikipedia/en/1/1b/Adele_-_21.png",
       tracks: ["Rolling in the Deep", "Someone Like You", "Set Fire to the Rain"]
     },
     {
       id: 5,
-      title: "Ab",
+      title: "Back in Black",
       artist: "AC/DC",
       cover: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/ACDC_Back_in_Black.png/220px-ACDC_Back_in_Black.png",
       tracks: ["Back in Black", "You Shook Me All Night Long", "Hells Bells"]

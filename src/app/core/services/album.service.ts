@@ -15,7 +15,6 @@ export class AlbumService {
     // this.http.get<Album[]>(MOCK_ALBUM_ENDPOINT).subscribe(albums => {
     //   this.albumsSignal.set(albums);
     // });
-
   }
 
   getAlbums = this.albumsSignal;
@@ -35,7 +34,7 @@ export class AlbumService {
     if (!artist) {
       this.albumsSignal.set(MOCK_ALBUMS);
     } else {
-      const filteredAlbums = MOCK_ALBUMS.filter(album => album.artist.toLowerCase().startsWith(artist.toLowerCase()));
+      const filteredAlbums = this.albumsSignal().filter(album => album.artist.toLowerCase().startsWith(artist.toLowerCase()));
       this.albumsSignal.set(filteredAlbums);
     }
   };
