@@ -11,6 +11,8 @@ import { AlbumService } from 'src/app/core/services';
 import { MatButtonModule } from '@angular/material/button';
 import {  ScrollingModule } from '@angular/cdk/scrolling';
 import { Subject, takeUntil } from 'rxjs';
+import { InputComponent } from '../../components/input/input.component';
+import { SelectComponent } from '../../components/select/select.component';
 
 @Component({
   selector: 'app-album-list',
@@ -25,6 +27,8 @@ import { Subject, takeUntil } from 'rxjs';
     MatInputModule,
     MatButtonModule,
     ScrollingModule,
+    InputComponent,
+    SelectComponent
   ],
   templateUrl: './album-list.component.html',
   styleUrls: ['./album-list.component.scss']
@@ -39,13 +43,18 @@ export class AlbumListComponent {
   sortCriteria = signal<SortCriteria | undefined>(undefined);
   filterArtist = signal<string>('');
 
+  sortOptions = [
+    { value: 'title', label: 'Title' },
+    { value: 'artist', label: 'Artist' },
+  ];
+
   albums =  this.albumService.getAlbums;
   private _destroy$ = new Subject<void>();
 
   ngOnInit() {
     this.checkIfRouteParamsChanged();
   }
-  
+
   ngOnDestroy() {
     this._destroy$.next();
   }
@@ -55,8 +64,8 @@ export class AlbumListComponent {
     this.updateRouteWithParam();
   }
 
-  onFilterChange(event: Event) {
-    const artist = (event.target as HTMLInputElement).value;
+  onFilterChange(text: string) {
+    const artist = text;
     this.filterArtist.set(artist);
     this.albumService.filterAlbums(artist);
     this.updateRouteWithParam();

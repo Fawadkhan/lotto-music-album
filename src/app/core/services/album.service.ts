@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AlbumService {
   private albumsSignal = signal<Album[]>([]);
-  
+  private sortedAlbums: Album[] = [];
+
   constructor(private http: HttpClient) {
     this.albumsSignal.set(MOCK_ALBUMS);
     // uncomment the line below to use the endpoint created at mockapi.io instead of mock data
@@ -25,16 +26,14 @@ export class AlbumService {
 
   sortAlbums(criteria: SortCriteria | undefined) {
     if(!criteria) return;
-    this.albumsSignal.update(albums => 
-      [...albums].sort((a, b) => a[criteria].localeCompare(b[criteria]))
-    );
+    this.albumsSignal.update(albums => [...albums].sort((a, b) => a[criteria].localeCompare(b[criteria])))
   };
 
   filterAlbums(artist: string) {
     if (!artist) {
       this.albumsSignal.set(MOCK_ALBUMS);
     } else {
-      const filteredAlbums = this.albumsSignal().filter(album => album.artist.toLowerCase().startsWith(artist.toLowerCase()));
+      const filteredAlbums = this.sortedAlbums.filter(album => album.artist.toLowerCase().startsWith(artist.toLowerCase()));
       this.albumsSignal.set(filteredAlbums);
     }
   };

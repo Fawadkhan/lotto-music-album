@@ -1,16 +1,16 @@
 <div class="album-list-container">
   <div class="filters">
-    <mat-form-field>
-      <mat-label>Sort by</mat-label>
-      <mat-select [ngModel]="sortCriteria()" (selectionChange)="onSortChange($event.value)">
-        <mat-option value="title">Title</mat-option>
-        <mat-option value="artist">Artist</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Filter by artist</mat-label>
-      <input matInput [ngModel]="filterArtist()" (input)="onFilterChange($event)">
-    </mat-form-field>
+    <app-select
+      label="Sort by"
+      [value]="sortCriteria()"
+      [options]="sortOptions"
+      (valueChange)="onSortChange($event)">
+    </app-select>
+    <app-input
+      label="Filter by artist"
+      [value]="filterArtist()"
+      (valueChange)="onFilterChange($event)">
+    </app-input>
     <button mat-raised-button color="primary" (click)="clearFilters()">Clear Filters</button>
   </div>
   <cdk-virtual-scroll-viewport class="album-viewport" itemSize="80">
