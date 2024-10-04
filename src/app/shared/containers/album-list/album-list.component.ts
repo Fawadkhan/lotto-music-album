@@ -38,7 +38,7 @@ export class AlbumListComponent {
   sortCriteria = signal<SortCriteria | undefined>(undefined);
   filterArtist = signal<string>('');
 
-  allAlbums =  this.albumService.getAlbums();
+  albums =  this.albumService.getAlbums;
 
   ngOnInit() {
     this.checkIfRouteParamsChanged();
@@ -90,7 +90,6 @@ export class AlbumListComponent {
         this.filterArtist.set(params['filter']);
         this.albumService.filterAlbums(params['filter']);
       }
-      this.clearFilters();
     });
   }
 }

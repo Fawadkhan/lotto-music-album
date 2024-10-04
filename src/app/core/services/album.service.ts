@@ -44,5 +44,4 @@ export class AlbumService {
     this.albumsSignal.set(MOCK_ALBUMS);
   };
 
-
 }
