@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -31,7 +31,8 @@ import { SelectComponent } from '../../components/select/select.component';
     SelectComponent
   ],
   templateUrl: './album-list.component.html',
-  styleUrls: ['./album-list.component.scss']
+  styleUrls: ['./album-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 
@@ -42,13 +43,15 @@ export class AlbumListComponent {
 
   sortCriteria = signal<SortCriteria | undefined>(undefined);
   filterArtist = signal<string>('');
+  
 
   sortOptions = [
     { value: 'title', label: 'Title' },
     { value: 'artist', label: 'Artist' },
   ];
 
-  albums =  this.albumService.getAlbums;
+  albums = this.albumService.getAlbums;
+
   private _destroy$ = new Subject<void>();
 
   ngOnInit() {
