@@ -98,3 +98,16 @@ These changes would make the application more robust and suitable for real-world
 3. Implement comprehensive unit and e2e tests. I used webdriver.io recently and it was a great solution for running e2e tests in pipeline but it has an overhead due to setting up the configuration
 4. Consider adopting NgRx for more complex state management as I mentioned before, it really depends on the type and scale of the project but it's generally a good idea to use a stable solution when the project scales up.
 5. Use Jest for unit testing as its much more faster than Karma.
+
+## Sequence diagram for the flow. Use mermaid live to see the diagram
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Component
+    participant Service
+
+    Client->>Component: User Action
+    Component->>Service: Request Data
+    Service-->>Component: Return Data
+    Component-->>Client: Update View
+    ```
