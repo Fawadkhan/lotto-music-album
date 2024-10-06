@@ -34,12 +34,12 @@ Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.gi
 ## Design Decisions
 
 1. **Standalone Components**: I've adopted standalone components for better code organization and lazy loading capabilities, improving performance. In standalone components the dependencies are imported directly within the components and this increases Tree shaking capabilities which leads to better performance.
+2. **MOCK DATA for albums**: I have used mock data to fetch albums and use it in the service. Currently this is a constant array but in future this will be replaced by an endpoint.
+3. **Signal-based State Management**: I have used Angular's signals for lightweight, reactive state management, avoiding the complexity of additional libraries while maintaining simplicity. I would generally prefer Ngrx for bigger projects but this is something very tricky and can be handled from project to project. I usually don't come up with a decision before I see the project and that's the reason why I went for signal state management to avoid complexity in such a small project. 
 
-2. **Signal-based State Management**: I have used Angular's signals for lightweight, reactive state management, avoiding the complexity of additional libraries while maintaining simplicity. I would generally prefer Ngrx for bigger projects but this is something very tricky and can be handled from project to project. I usually don't come up with a decision before I see the project and that's the reason why I went for signal state management to avoid complexity in such a small project. 
+4. **Query Parameters for State of Inputs**: Used query parameters in routing to maintain sorting and filtering states, enabling shareable URLs and proper navigation history. This is one of the strategices I use to keep the state consistent specially on refreshing the page. Other solution would be save the state globally or just use local storage but that's not very ideal in our case.
 
-3. **Query Parameters for State of Inputs**: Used query parameters in routing to maintain sorting and filtering states, enabling shareable URLs and proper navigation history. This is one of the strategices I use to keep the state consistent specially on refreshing the page. Other solution would be save the state globally or just use local storage but that's not very ideal in our case.
-
-4. **Service Architecture**: Created separate services (AlbumService, PlaylistService, StorageService) to separate business logic and data management, improving testability and maintainability.
+5. **Service Architecture**: Created separate services (AlbumService, PlaylistService, StorageService) to separate business logic and data management, improving testability and maintainability.
 
 ### CDK Virtual Scroller
 
