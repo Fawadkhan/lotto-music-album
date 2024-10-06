@@ -1,0 +1,19 @@
+<div *ngIf="album()" class="album-detail">
+  <img [src]="album()?.cover" [alt]="album()?.title + ' cover'" preload>
+  <div class="album-info">
+    <h2>{{ album()?.title }}</h2>
+    <p class="artist">{{ album()?.artist }}</p>
+    <div class="track-list">
+      <h3>Tracks:</h3>
+      <ol>
+        <li *ngFor="let track of album()?.tracks">
+          <span>{{ track }}</span>
+          <button mat-icon-button (click)="addToPlaylist(track)" 
+            [attr.aria-label]="findTrackInPlaylist(track) ? 'Remove from playlist' : 'Add to playlist'">
+            <mat-icon>{{ findTrackInPlaylist(track) ? 'check' : 'add' }}</mat-icon>
+          </button>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>

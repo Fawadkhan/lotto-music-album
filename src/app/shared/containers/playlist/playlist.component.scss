@@ -1,0 +1,65 @@
+@import '../../../styles/variables.scss';
+
+mat-list {
+    h3 {
+        font-size: $font-size-medium;
+        font-weight: 600;
+        color: $tertiary-text-color;
+        margin-bottom: $spacing-medium;
+        margin-left: $spacing-large;
+      }
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: $spacing-small;
+    margin: $spacing-small 0;
+    padding: $spacing-small $spacing-small;
+    background-color: $secondary-bg-color;
+    border-radius: $border-radius-small;
+
+
+    &:hover {
+        background-color: #e9ecef;
+    }
+
+
+    .mat-list-icon {
+        color: $icon-color;
+        margin-right: auto;
+      }
+  
+
+    .mat-line {
+        flex-grow: 1;
+        font-size: 16px;
+        color: #495057;
+    }
+
+  button {
+      color: $delete-color;
+      margin-left: auto;
+      margin-right: $spacing-medium;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+}
+
+
+@media (max-width: $breakpoint-mobile) {
+    .mat-list {
+      padding: $spacing-small;
+    }
+  
+    .mat-list-item .playlist-item {
+      padding: $spacing-small;
+  
+      .mat-line {
+        font-size: $font-size-xs;
+      }
+    }
+  }

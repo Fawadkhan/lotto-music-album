@@ -1,0 +1,28 @@
+<div class="album-list-container">
+  <div class="filters">
+    <app-select
+      label="Sort by"
+      [value]="sortCriteria()"
+      [options]="sortOptions"
+      (valueChange)="onSortChange($event)">
+    </app-select>
+    <app-input
+      label="Filter by artist"
+      [value]="filterArtist()"
+      (valueChange)="onFilterChange($event)">
+    </app-input>
+    <button mat-raised-button color="primary" (click)="clearFilters()">Clear Filters</button>
+  </div>
+  <cdk-virtual-scroll-viewport class="album-viewport" itemSize="80">
+    <div class="album-list">
+      <div *cdkVirtualFor="let album of albums() " class="album-item">
+          <img [ngSrc]="album.cover" height="50" width="50" [alt]="album.title" class="album-thumbnail" priority>
+          <div class="album-info">
+          <h3>{{ album.title }}</h3>
+          <p>{{ album.artist }}</p>
+        </div>
+        <button mat-button color="primary" [routerLink]="['/album', album.id]">View Details</button>
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>

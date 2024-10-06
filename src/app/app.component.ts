@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { NavigationComponent } from "./shared/components/navigation/navigation.component";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  standalone: true,
+  styleUrls: ['./app.component.scss'],
+  imports: [CommonModule,
+    RouterOutlet, NavigationComponent],
+  template: `
+    <app-navigation></app-navigation>
+    <router-outlet></router-outlet>
+  `,
 })
-export class AppComponent {
-  title = 'lotto-music-album-project';
-}
+export class AppComponent { }

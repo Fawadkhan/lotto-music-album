@@ -8,9 +8,6 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule
       ],
-      declarations: [
-        AppComponent
-      ],
     }).compileComponents();
   });
 
@@ -18,18 +15,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'lotto-music-album-project'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('lotto-music-album-project');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('lotto-music-album-project app is running!');
   });
 });

@@ -1,0 +1,17 @@
+mat-toolbar {
+    margin-bottom: 20px;
+  }
+  .title {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
+  nav {
+    display: flex;
+    gap: 10px;
+  }
+  .active {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
