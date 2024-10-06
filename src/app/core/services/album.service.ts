@@ -26,6 +26,14 @@ export class AlbumService {
     this.sortType.set(criteria);
   }
 
+  preloadSortCriteria() {
+    return this.sortType()
+  }
+
+  preloadFilterText() {
+    return this.filteredText();
+  }
+
   filterAlbums(artist: string) {
     this.filteredText.set(artist);
   }

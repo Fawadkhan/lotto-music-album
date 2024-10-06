@@ -65,14 +65,14 @@ export class AlbumListComponent {
   onSortChange(criteria: SortCriteria) {
     this.sortCriteria.set(criteria);
     this.albumService.sortAlbums(criteria);
-    this.updateRouteWithParam();
+    this.syncRouteWithParams();
   }
 
   onFilterChange(text: string) {
     const artist = text;
     this.filterArtist.set(artist);
     this.albumService.filterAlbums(artist);
-    this.updateRouteWithParam();
+    this.syncRouteWithParams();
   }
 
   clearFilters(): void {
@@ -83,15 +83,17 @@ export class AlbumListComponent {
   }
 
 
-  // TODO: This method can be potentially moved to a router service for reusability
-  private updateRouteWithParam() {
+  // TODO: This method can be potentially moved to a router service for reusability as this is too much logic already
+  private syncRouteWithParams() {
+    const sortExists = this.sortCriteria() || this.albumService.preloadSortCriteria();
+    const filterExists = this.filterArtist() || this.albumService.preloadFilterText();
     const queryParams: { sort?: SortCriteria, filter?: string } = {};
-    if(this.sortCriteria()) {
-      queryParams.sort = this.sortCriteria();
+    
+    if(sortExists) {
+      queryParams.sort = sortExists;
     }
-    const filterValue = this.filterArtist();
-    if (filterValue && filterValue.trim() !== '') {
-      queryParams.filter = filterValue;
+    if (filterExists && filterExists.trim() !== '') {
+      queryParams.filter = filterExists;
     }
     this.router.navigate([], {
       relativeTo: this.route,
@@ -101,14 +103,18 @@ export class AlbumListComponent {
 
   private checkIfRouteParamsChanged() {
     this.route.queryParams.pipe(takeUntil(this._destroy$)).subscribe(params => {
-      if (params['sort']) {
-        this.sortCriteria.set(params['sort'] as SortCriteria);
-        this.albumService.sortAlbums(params['sort'] as SortCriteria);
+      const sortParams  = params['sort']
+      const filterParams = params['filter'];
+      if (sortParams) {
+        this.sortCriteria.set(sortParams as SortCriteria);
+        this.albumService.sortAlbums(sortParams as SortCriteria);
       }
-      if (params['filter']) {
-        this.filterArtist.set(params['filter']);
-        this.albumService.filterAlbums(params['filter']);
+      if (filterParams) {
+        this.filterArtist.set(filterParams);
+        this.albumService.filterAlbums(filterParams);
       }
+      this.syncRouteWithParams();
+
     });
   }
 
