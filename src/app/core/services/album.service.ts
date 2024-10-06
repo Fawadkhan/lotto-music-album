@@ -1,22 +1,20 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { Album, SortCriteria } from 'src/app/core/models';
 import { MOCK_ALBUMS } from '../fixtures/mock-data';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlbumService {
   private originalAlbums = MOCK_ALBUMS;
-  private currentFilter = signal<string>('');
-  private currentSort = signal<SortCriteria | undefined>(undefined);
+  private filteredText = signal<string>('');
+  private sortType = signal<SortCriteria | undefined>(undefined);
 
   constructor() {}
 
   getAlbums = computed(() => {
- 
-    const filtered = this.handleFiltering(this.originalAlbums, this.currentFilter());
-    const sorted = this.handleSorting(filtered, this.currentSort());
+    const filtered = this.handleFiltering(this.originalAlbums, this.filteredText());
+    const sorted = this.handleSorting(filtered, this.sortType());
     return sorted;
   });
 
@@ -25,16 +23,16 @@ export class AlbumService {
   }
 
   sortAlbums(criteria: SortCriteria | undefined) {
-    this.currentSort.set(criteria);
+    this.sortType.set(criteria);
   }
 
   filterAlbums(artist: string) {
-    this.currentFilter.set(artist);
+    this.filteredText.set(artist);
   }
 
   resetToOriginal() {
-    this.currentFilter.set('');
-    this.currentSort.set(undefined);
+    this.filteredText.set('');
+    this.sortType.set(undefined);
   }
 
   private handleFiltering(albums: Album[], filter: string): Album[] {

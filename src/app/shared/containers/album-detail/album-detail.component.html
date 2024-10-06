@@ -1,5 +1,5 @@
 <div *ngIf="album()" class="album-detail">
-  <img [src]="album()?.cover" [alt]="album()?.title + ' cover'">
+  <img [src]="album()?.cover" [alt]="album()?.title + ' cover'" preload>
   <div class="album-info">
     <h2>{{ album()?.title }}</h2>
     <p class="artist">{{ album()?.artist }}</p>

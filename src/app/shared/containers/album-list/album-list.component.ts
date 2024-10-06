@@ -1,5 +1,5 @@
 import { Component, inject, signal, computed, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -28,7 +28,8 @@ import { SelectComponent } from '../../components/select/select.component';
     MatButtonModule,
     ScrollingModule,
     InputComponent,
-    SelectComponent
+    SelectComponent,
+    NgOptimizedImage
   ],
   templateUrl: './album-list.component.html',
   styleUrls: ['./album-list.component.scss'],

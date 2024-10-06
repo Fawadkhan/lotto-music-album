@@ -69,7 +69,7 @@ describe('AlbumListComponent', () => {
   });
 
   it('should update filter artist and call albumService.filterAlbums', () => {
-    const mockEvent = { target: { value: 'Test Artist' } } as unknown as Event;
+    const mockEvent = 'Test Artist' 
     component.onFilterChange(mockEvent);
     expect(component.filterArtist()).toBe('Test Artist');
     expect(albumServiceSpy.filterAlbums).toHaveBeenCalledWith('Test Artist');
