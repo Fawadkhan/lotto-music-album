@@ -83,6 +83,7 @@ export class AlbumListComponent {
   }
 
 
+  // TODO: This method can be potentially moved to a router service for reusability
   private updateRouteWithParam() {
     const queryParams: { sort?: SortCriteria, filter?: string } = {};
     if(this.sortCriteria()) {

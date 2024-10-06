@@ -16,8 +16,8 @@
   <cdk-virtual-scroll-viewport class="album-viewport" itemSize="80">
     <div class="album-list">
       <div *cdkVirtualFor="let album of albums() " class="album-item">
-        <img [ngSrc]="album.cover" height="50" width="50" [alt]="album.title" class="album-thumbnail" priority>
-        <div class="album-info">
+          <img [ngSrc]="album.cover" height="50" width="50" [alt]="album.title" class="album-thumbnail" priority>
+          <div class="album-info">
           <h3>{{ album.title }}</h3>
           <p>{{ album.artist }}</p>
         </div>
